@@ -1,0 +1,96 @@
+$primary: var(--primary);
+$secondary: var(--secondary);
+
+$light: var(--light);
+$dark: var(--dark);
+$mainbg: var(--mainbg);
+
+@mixin flex($flow: row) {
+  display: flex;
+  flex-direction: $flow;
+}
+
+@mixin center($direction: row) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+@mixin full-flex($align: center, $justify: center, $flow: row) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $flow;
+}
+
+@mixin borderbox {
+  box-sizing: border-box;
+
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+}
+
+@mixin strip-list {
+  list-style-type: none;
+  text-decoration: none;
+}
+
+@mixin clear-btn {
+  background: none;
+  outline: none;
+  border: none;
+}
+
+@mixin bgimage($image) {
+  background-image: url($image);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@mixin position(
+  $position: relative,
+  $top: 0,
+  $right: 0,
+  $bottom: 0,
+  $left: 0,
+  $z-index: 1
+) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  z-index: $z-index;
+}
+
+@mixin transparent-white() {
+  background: rgba(26, 26, 26, 0.943); // Higher opacity
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+@mixin transparent-card() {
+  background: rgba(205, 204, 204, 0.509);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+$breakpoints: (
+  "sm": 1012px,
+);
+
+@mixin sm {
+  @media (max-width: map-get($breakpoints, "sm")) {
+    @content;
+  }
+}
+
+@mixin media($bp) {
+  @media (max-width: $bp) {
+    @content;
+  }
+}
