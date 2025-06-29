@@ -39,7 +39,6 @@ a {
   top: 0px;
   left: 0px;
   width: 100%;
-  // min-height: 1000px;
   @include flex(column);
   background-color: $mainbg;
   color: $light;
@@ -52,6 +51,7 @@ a {
 
   .app_children {
     user-select: none;
+    overflow: hidden;
     width: 100%;
   }
   .app_footer {
@@ -59,7 +59,6 @@ a {
   }
 
   // components
-  @import "./scss/components/navbar";
   @import "./scss/components/general";
   @import "./scss/components/modal";
 

@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import useModalStore from "@/lib/store/modal-store";
 import BlogBtn from "../general/blog-btn";
 import { useAuth } from "@/hooks/useAuth";
+import { useGenselectors } from "@/lib/store/general-store";
 
 interface ModalProp {
   isOpen: boolean;
@@ -10,11 +11,14 @@ interface ModalProp {
 }
 const ModalLogout = ({ isOpen, onClose }: ModalProp) => {
   const { logout } = useAuth();
-  if (!isOpen) return null;
+  const toggleState = useGenselectors.use.toggleState();
+
   const handleClick = async () => {
     logout();
+    toggleState();
     onClose();
   };
+  if (!isOpen) return null;
   return (
     <div className="modal_bg">
       <div className="modal_confirm">

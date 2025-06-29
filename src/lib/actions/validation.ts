@@ -31,10 +31,17 @@ export const loginschema = yup.object().shape({
 export const createschema = yup.object().shape({
   title: yup.string().required("Post title is a required"), //set
   desc: yup.string().required("Provide a short description"), //set
-  details: yup.string().required("Provide a post details"),
+  content: yup.string().required("Provide a post details"),
   tags: yup
     .array()
     .of(yup.string())
     .min(1, "Please add at least one software")
     .required(),
+});
+
+export const editschema = yup.object().shape({
+  title: yup.string().nullable(), //set
+  desc: yup.string().nullable(), //set
+  content: yup.string().nullable(),
+  tags: yup.array().of(yup.string()).nullable(),
 });

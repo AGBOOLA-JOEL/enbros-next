@@ -14,7 +14,7 @@ const BlogPagination: React.FC<BlogPaginationProps> = ({
   type,
   setCurrentItems,
 }) => {
-  const [itemsPerPage, setItemsPerPage] = useState(4);
+  const [itemsPerPage, setItemsPerPage] = useState(8);
   const [itemOffset, setItemOffset] = useState(0);
 
   const pageCount = Math.ceil(data.length / itemsPerPage);

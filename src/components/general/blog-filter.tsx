@@ -1,10 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 
-const BlogFilter = () => {
-  const [activeFilter, setActiveFilter] = useState("All");
+type BlogFilterProps = {
+  activeFilter: string;
+  setActiveFilter: Dispatch<SetStateAction<string>>;
+};
 
+const BlogFilter = ({ activeFilter, setActiveFilter }: BlogFilterProps) => {
   const filters = [
     "All",
     "Frontend",

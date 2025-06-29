@@ -15,18 +15,20 @@ import { createschema, loginschema } from "@/lib/actions/validation";
 import BlogInput from "@/components/general/blog-input";
 import BlogTextarea from "@/components/general/blog-textarea";
 import BlogTagpicker from "@/components/general/blog-tagpicker";
+import FormBtn from "@/components/forms/form-btn";
+import FormHeader from "@/components/forms/form-header";
+import { usePost } from "@/hooks/usePost";
 
 const Create = () => {
-  const { openModal, closeModal } = useModalStore();
+  const { createpostMutation } = usePost();
   const openToast = useGenselectors.use.openToast();
-  const router = useRouter();
   const { register, handleSubmit, reset, control } = useForm<CreateData>({
     resolver: yupResolver(createschema),
     mode: "onSubmit",
     defaultValues: {
       title: "",
       desc: "",
-      details: "",
+      content: "",
       tags: ["Full Stack"],
     },
   });
@@ -41,22 +43,19 @@ const Create = () => {
   };
 
   const onSubmit = async (data: CreateData) => {
-    openModal("loading");
-    console.log("data", data);
+    createpostMutation.mutate(data);
   };
 
   return (
     <form
       autoComplete="off"
       action=""
-      className="create"
+      className="form_wrapper"
       onSubmit={handleSubmit(onSubmit, onError)}
     >
-      <div className="form_header">
-        <p>CREATE POST</p>
-      </div>
+      <FormHeader name="create post" />
 
-      <div className="create_fields">
+      <div className="form_fields">
         {[
           { label: "Post Title", name: "title", isPassword: false },
           { label: "Description", name: "desc", isPassword: false },
@@ -71,7 +70,7 @@ const Create = () => {
         ))}
 
         <BlogTextarea
-          name="details"
+          name="content"
           label="Post details"
           register={register}
           placeholder={
@@ -95,9 +94,7 @@ const Create = () => {
         />
       </div>
 
-      <div className="create_button">
-        <button type="submit">Submit</button>
-      </div>
+      <FormBtn name="Submit" />
     </form>
   );
 };

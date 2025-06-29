@@ -9,6 +9,8 @@ import { LoginData } from "@/types/forms.type";
 import { loginschema } from "@/lib/actions/validation";
 import BlogInput from "@/components/general/blog-input";
 import { useAuth } from "@/hooks/useAuth";
+import FormBtn from "@/components/forms/form-btn";
+import FormHeader from "@/components/forms/form-header";
 
 const Login = () => {
   const openToast = useGenselectors.use.openToast();
@@ -39,14 +41,12 @@ const Login = () => {
     <form
       autoComplete="off"
       action=""
-      className="login"
+      className="form_wrapper"
       onSubmit={handleSubmit(onSubmit, onError)}
     >
-      <div className="form_header">
-        <p>sign in </p>
-      </div>
+      <FormHeader name="Login" />
 
-      <div className="login_fields">
+      <div className="form_fields">
         {[
           { label: "Username", name: "username", isPassword: false },
           { label: "Password", name: "password", isPassword: true },
@@ -61,11 +61,9 @@ const Login = () => {
         ))}
       </div>
 
-      <div className="login_button">
-        <button type="submit">Submit</button>
-      </div>
+      <FormBtn name="Submit" />
 
-      <h2 className="login_join">
+      <h2 className="form_login">
         Don’t have an account? <Link href="/register"> Click to create.</Link>
       </h2>
     </form>

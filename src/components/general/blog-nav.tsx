@@ -29,12 +29,22 @@ const BlogNav = () => {
       <BlogLogo />
       <div className="blog__nav__desktop">
         {isAuthenticated ? (
-          <BlogBtn
-            variant="outline"
-            type="button"
-            onClick={handleLogout}
-            name="Sign Out"
-          />
+          <>
+            <BlogBtn
+              variant="primary"
+              type="button"
+              onClick={() => {
+                router.push("/create-post");
+              }}
+              name="Create Post"
+            />
+            <BlogBtn
+              variant="outline"
+              type="button"
+              onClick={handleLogout}
+              name="Sign Out"
+            />
+          </>
         ) : (
           <>
             <BlogBtn
@@ -58,8 +68,16 @@ const BlogNav = () => {
       </div>
 
       {isAuthenticated && toggle && (
-        <div className="blog__nav__dropdown" onClick={handleLogout}>
-          <button>Sign out</button>
+        <div className="blog__nav__dropdown">
+          <button onClick={handleLogout}>Sign out</button>
+          <button
+            onClick={() => {
+              router.push("/create-post");
+              toggleState();
+            }}
+          >
+            Create Post
+          </button>
         </div>
       )}
 

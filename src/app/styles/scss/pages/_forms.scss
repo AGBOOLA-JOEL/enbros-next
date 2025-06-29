@@ -1,6 +1,7 @@
 & .forms {
   @include center(column);
   min-height: 100vh;
+  padding-bottom: 100px;
 
   & .forms_bg {
     @include sm {
@@ -9,20 +10,7 @@
   }
 }
 
-& .form_header {
-  @include center(column);
-  height: 85px;
-
-  & p {
-    text-transform: uppercase;
-    font-size: 2.4rem;
-    font-weight: 700;
-    line-height: 29px;
-    color: $primary;
-  }
-}
-
-& .login {
+& .form_wrapper {
   margin-top: 80px;
   width: 529px;
   background-color: #f8f8f8;
@@ -31,15 +19,22 @@
   @include sm {
     width: 100%;
     background: none;
-    margin-top: 50px;
+    margin-top: -10px;
+  }
+  & .form_header {
+    @include center(column);
+    height: 85px;
+
+    & p {
+      text-transform: uppercase;
+      font-size: 2.4rem;
+      font-weight: 700;
+      line-height: 29px;
+      color: $primary;
+    }
   }
 
-  & .login_fields {
-    width: 100%;
-    @include center(column);
-    gap: 25px;
-  }
-  & .login_button {
+  & .form_button {
     @include center(column);
     margin-top: 20px;
 
@@ -65,7 +60,13 @@
       }
     }
   }
-  & .login_join {
+
+  & .form_fields {
+    width: 100%;
+    @include center(column);
+    gap: 25px;
+  }
+  & .form_login {
     margin-top: 20px;
     width: 100%;
     font-size: 1.9rem;
@@ -88,112 +89,108 @@
   }
 }
 
-& .register {
-  margin-top: 80px;
-  width: 529px;
-  background-color: #f8f8f8;
-  border-radius: 10px;
-  padding-bottom: 30px;
-  @include sm {
-    width: 100%;
-    background: none;
-    margin-top: 50px;
-  }
+& .edit_wrapper {
+  min-height: 100vh;
+  @include flex(column);
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 200px;
 
-  & .register_fields {
+  & .edit {
+    @include center(column);
     width: 100%;
-    @include center(column);
-    gap: 25px;
-  }
-  & .register_button {
-    @include center(column);
-    margin-top: 20px;
+    & .edit_header {
+      width: 100%;
+      @include center(column);
+      height: 85px;
 
-    & button {
-      width: 86.5%;
-      height: 59px;
-      font-size: 2rem;
-      cursor: pointer;
-      border-radius: 5px;
-      color: $light;
-      background-color: $primary;
-      outline: none;
-      border: none;
-      transition: 0.3s ease-in-out;
-      &:hover {
-        transition: 0.3s ease-in-out;
-        background-color: $secondary;
-        // color: $secondary;
+      & p {
+        text-transform: uppercase;
+        font-size: 2.4rem;
+        font-weight: 700;
+        line-height: 29px;
+        color: $primary;
       }
+    }
+    & .edit_fields {
+      @include center(column);
+      width: 50%;
       @include sm {
-        font-size: 1.8rem;
-        width: 92.5%;
+        width: 100%;
+      }
+
+      gap: 30px;
+
+      & .edit_inputs {
+        width: 100%;
+        @include center(column);
+        & h1 {
+          width: 100%;
+          color: $primary;
+          font-size: 1.7rem;
+          width: 87%;
+          // @include center(column);
+          @include sm {
+            width: 92.5%;
+          }
+        }
+      }
+
+      & .edit_textarea {
+        width: 100%;
+        @include center(column);
+        & h1 {
+          width: 100%;
+          color: $primary;
+          font-size: 1.7rem;
+          width: 87%;
+          // @include center(column);
+          @include sm {
+            width: 92.5%;
+          }
+        }
+      }
+
+      & .edit_tags {
+        width: 100%;
+        @include center(column);
+
+        & .blog_tags {
+          border: 1px solid $light;
+        }
+        & .blog_tags__title {
+          color: $light;
+        }
       }
     }
-  }
-  & .register_login {
-    margin-top: 20px;
-    width: 100%;
-    font-size: 1.9rem;
-    font-weight: 500;
-    text-align: center;
-    color: $dark;
-    @include sm {
-      color: $light;
-      font-size: 1.5rem;
-    }
-    & a {
-      color: $primary;
-      margin-left: 5px;
-      cursor: pointer;
-      font-weight: 500;
-      &:hover {
-        color: $secondary;
-      }
-    }
-  }
-}
-
-& .create {
-  margin-top: -40px;
-  width: 529px;
-  background-color: #f8f8f8;
-  border-radius: 10px;
-  padding-bottom: 30px;
-  @include sm {
-    width: 100%;
-    background: none;
-    margin-top: 50px;
-  }
-
-  & .create_fields {
-    width: 100%;
-    @include center(column);
-    gap: 25px;
-  }
-  & .create_button {
-    @include center(column);
-    margin-top: 20px;
-
-    & button {
-      width: 86.5%;
-      height: 59px;
-      font-size: 2rem;
-      cursor: pointer;
-      border-radius: 5px;
-      color: $light;
-      background-color: $primary;
-      outline: none;
-      border: none;
-      transition: 0.3s ease-in-out;
-      &:hover {
-        transition: 0.3s ease-in-out;
-        background-color: $secondary;
-        // color: $secondary;
-      }
+    & .edit_button {
+      width: 50%;
       @include sm {
-        font-size: 1.8rem;
-        width: 92.5%;
+        width: 100%;
+      }
+      @include center(column);
+      margin-top: 20px;
+
+      & button {
+        width: 86.5%;
+        height: 59px;
+        font-size: 2rem;
+        cursor: pointer;
+        border-radius: 5px;
+        color: $light;
+        background-color: $primary;
+        outline: none;
+        border: none;
+        transition: 0.3s ease-in-out;
+        &:hover {
+          transition: 0.3s ease-in-out;
+          background-color: $secondary;
+          // color: $secondary;
+        }
+        @include sm {
+          font-size: 1.8rem;
+          width: 92.5%;
+        }
       }
     }
   }

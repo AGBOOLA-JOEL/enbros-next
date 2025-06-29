@@ -108,4 +108,15 @@
       gap: 17px;
     }
   }
+
+  & .modal_spinner {
+    width: 100%;
+    height: 200px;
+    @include center(column);
+    gap: 20px;
+    & .modal_spinner_text {
+      font-size: 2rem;
+      color: $primary;
+    }
+  }
 }

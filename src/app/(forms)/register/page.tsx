@@ -8,6 +8,8 @@ import { RegisterData } from "@/types/forms.type";
 import { registerschema } from "@/lib/actions/validation";
 import BlogInput from "@/components/general/blog-input";
 import { useAuth } from "@/hooks/useAuth";
+import FormBtn from "@/components/forms/form-btn";
+import FormHeader from "@/components/forms/form-header";
 
 const Register = () => {
   const { registerMutation } = useAuth();
@@ -38,14 +40,12 @@ const Register = () => {
     <form
       autoComplete="off"
       action=""
-      className="register"
+      className="form_wrapper"
       onSubmit={handleSubmit(onSubmit, onError)}
     >
-      <div className="form_header">
-        <p>sign up</p>
-      </div>
+      <FormHeader name="sign up" />
 
-      <div className="register_fields">
+      <div className="form_fields">
         {[
           { label: "Username", name: "username", isPassword: false },
           { label: "Password", name: "password", isPassword: true },
@@ -65,11 +65,9 @@ const Register = () => {
         ))}
       </div>
 
-      <div className="register_button">
-        <button type="submit">Submit</button>
-      </div>
+      <FormBtn name="Submit" />
 
-      <h2 className="register_login">
+      <h2 className="form_login">
         Already have an account? <Link href="/login"> Login.</Link>
       </h2>
     </form>
