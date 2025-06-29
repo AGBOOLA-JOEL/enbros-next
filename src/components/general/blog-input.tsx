@@ -7,7 +7,7 @@ const BlogInput = ({
   isPassword,
   label,
   name,
-  onChange,
+
   register,
 }: BlogInputProp) => {
   const [toggle, setToggle] = useState(false);
@@ -19,7 +19,6 @@ const BlogInput = ({
         placeholder={label}
         {...register(name)}
         name={name}
-        onChange={onChange}
         autoComplete="off"
       />
 

@@ -1,23 +1,18 @@
 "use client";
-// import { useAuth } from "@/_hooks/useAuth";
 import { useGenselectors } from "@/lib/store/general-store";
-
 import { FieldErrors } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import useModalStore from "@/lib/store/modal-store";
-import { useRouter } from "next/navigation";
-import BlogBtn from "@/components/general/blog-btn";
 import { LoginData } from "@/types/forms.type";
 import { loginschema } from "@/lib/actions/validation";
 import BlogInput from "@/components/general/blog-input";
+import { useAuth } from "@/hooks/useAuth";
 
 const Login = () => {
-  const { openModal, closeModal } = useModalStore();
   const openToast = useGenselectors.use.openToast();
-  const router = useRouter();
+  const { loginMutation } = useAuth();
   const { register, handleSubmit, reset } = useForm<LoginData>({
     resolver: yupResolver(loginschema),
     mode: "onSubmit",
@@ -26,12 +21,6 @@ const Login = () => {
       password: "",
     },
   });
-
-  const [login, setLogin] = useState<LoginData>({} as LoginData);
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setLogin({ ...login, [e.target.name]: e.target.value });
-  };
 
   const onError = (errors: FieldErrors<LoginData>) => {
     for (const [fieldName, err] of Object.entries(errors)) {
@@ -43,7 +32,8 @@ const Login = () => {
   };
 
   const onSubmit = async (data: LoginData) => {
-    openModal("loading");
+    console.log("login data", data);
+    loginMutation.mutate(data);
   };
   return (
     <form
@@ -67,7 +57,6 @@ const Login = () => {
             label={label}
             name={name}
             isPassword={isPassword}
-            onChange={handleInputChange}
           />
         ))}
       </div>

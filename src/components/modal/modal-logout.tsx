@@ -2,16 +2,19 @@ import { X } from "lucide-react";
 import { useRouter } from "next/navigation";
 import useModalStore from "@/lib/store/modal-store";
 import BlogBtn from "../general/blog-btn";
+import { useAuth } from "@/hooks/useAuth";
 
 interface ModalProp {
   isOpen: boolean;
   onClose: () => void;
 }
 const ModalLogout = ({ isOpen, onClose }: ModalProp) => {
-  const { openModal, closeModal } = useModalStore();
-  const router = useRouter();
+  const { logout } = useAuth();
   if (!isOpen) return null;
-  const handleClick = async () => {};
+  const handleClick = async () => {
+    logout();
+    onClose();
+  };
   return (
     <div className="modal_bg">
       <div className="modal_confirm">

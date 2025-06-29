@@ -136,9 +136,9 @@
   & .blog__nav__ham {
     display: none;
 
-    // @include sm {
-    //   display: flex;
-    // }
+    @include sm {
+      display: flex;
+    }
   }
   & .blog__nav__dropdown {
     position: absolute;

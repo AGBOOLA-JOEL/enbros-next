@@ -27,12 +27,6 @@ const Edit = () => {
     },
   });
 
-  const [create, setCreate] = useState<CreateData>({} as CreateData);
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCreate({ ...create, [e.target.name]: e.target.value });
-  };
-
   const onError = (errors: FieldErrors<CreateData>) => {
     for (const [fieldName, err] of Object.entries(errors)) {
       if (err?.message) {
@@ -68,7 +62,6 @@ const Edit = () => {
             label={label}
             name={name}
             isPassword={isPassword}
-            onChange={handleInputChange}
           />
         ))}
 

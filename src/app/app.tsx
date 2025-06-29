@@ -11,7 +11,6 @@ const App = ({ children }: { children: React.ReactNode }) => {
 
   // Define paths or path prefixes where footer should show
   const showNavPaths = ["/"];
-
   const showNavStartsWith = ["/post"];
 
   const shouldShowNav =

@@ -1,9 +1,6 @@
 "use client"; // Ensures this runs only on the client
-
 import { ReactNode, useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-// import { SessionProvider } from "next-auth/react";
-// import SessionErrorWatcher from "./sessionwatcher";
 const ProvidersTree = ({ children }: { children: ReactNode }) => {
   const [queryClient] = useState(
     () =>

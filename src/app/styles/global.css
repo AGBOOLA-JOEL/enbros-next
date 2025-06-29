@@ -206,6 +206,11 @@ a {
 .app .blog__nav .blog__nav__ham {
   display: none;
 }
+@media (max-width: 1012px) {
+  .app .blog__nav .blog__nav__ham {
+    display: flex;
+  }
+}
 .app .blog__nav .blog__nav__dropdown {
   position: absolute;
   display: none;
