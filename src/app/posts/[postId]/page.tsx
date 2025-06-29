@@ -45,6 +45,7 @@
 import BlogViewpage from "@/components/general/blog-viewpage";
 import { BlogPost } from "@/types/posts.type";
 import { notFound } from "next/navigation";
+import { use } from "react";
 
 export const revalidate = false;
 
@@ -68,9 +69,11 @@ async function getPost(postId: string): Promise<BlogPost | null> {
 export default async function PostPage({
   params,
 }: {
-  params: { postId: string };
+  params: Promise<{ postId: string }>;
 }) {
-  const post = await getPost(params.postId);
+  const postId = (await params).postId;
+
+  const post = await getPost(postId);
 
   if (!post) {
     notFound();
