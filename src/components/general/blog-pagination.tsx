@@ -10,9 +10,9 @@ interface BlogPaginationProps {
   setCurrentItems: (items: any[]) => void;
 }
 const BlogPagination: React.FC<BlogPaginationProps> = ({
-  data,
+  data = [],
   type,
-  setCurrentItems,
+  setCurrentItems = () => {},
 }) => {
   const [itemsPerPage, setItemsPerPage] = useState(8);
   const [itemOffset, setItemOffset] = useState(0);

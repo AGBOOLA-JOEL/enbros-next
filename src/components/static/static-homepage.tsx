@@ -28,7 +28,7 @@ export default function HomepageStatic({ posts }: Props) {
         {filteredPosts.length > 0 ? (
           filteredPosts.map((post) => <BlogCard key={post.id} data={post} />)
         ) : (
-          <p>No posts found for "{activeFilter}"</p>
+          <p>No posts found for {activeFilter}</p>
         )}
       </div>
     </div>

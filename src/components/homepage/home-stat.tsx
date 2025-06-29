@@ -3,6 +3,7 @@
 import { useAuth } from "@/hooks/useAuth";
 import { useGenselectors } from "@/lib/store/general-store";
 import { Plus, ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Router } from "next/router";
 
@@ -64,7 +65,10 @@ const HomeStat = () => {
         <div className="homepage__stat__right">
           <div className="homepage__stat__visual">
             <div className="homepage__stat__community">
-              <img
+              <Image
+                width={0}
+                height={0}
+                sizes={"100vw"}
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/blogpeople-Kqnr7uIwpnYFOb9tz0a7W0huXCmzjZ.png"
                 alt="Community members"
                 className="homepage__stat__avatars"
