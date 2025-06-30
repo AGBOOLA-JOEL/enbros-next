@@ -13,7 +13,6 @@ const ModalLoading = ({ isOpen, onClose }: ModalProp) => {
     <ModalPortal>
       <div className="modal_loading">
         <BlogLoader />
-        {/* <button onClick={onClose}>Close</button> */}
       </div>
     </ModalPortal>
   );

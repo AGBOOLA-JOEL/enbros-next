@@ -3,7 +3,7 @@ import { useGenselectors } from "@/lib/store/general-store";
 import { FieldErrors } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { LoginData } from "@/types/forms.type";
 import { loginschema } from "@/lib/actions/validation";

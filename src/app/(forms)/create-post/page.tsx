@@ -1,17 +1,10 @@
 "use client";
-// import { useAuth } from "@/_hooks/useAuth";
 import { useGenselectors } from "@/lib/store/general-store";
-
 import { Controller, FieldErrors } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import Link from "next/link";
-import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import useModalStore from "@/lib/store/modal-store";
-import { useRouter } from "next/navigation";
-import BlogBtn from "@/components/general/blog-btn";
-import { CreateData, LoginData } from "@/types/forms.type";
-import { createschema, loginschema } from "@/lib/actions/validation";
+import { CreateData } from "@/types/forms.type";
+import { createschema } from "@/lib/actions/validation";
 import BlogInput from "@/components/general/blog-input";
 import BlogTextarea from "@/components/general/blog-textarea";
 import BlogTagpicker from "@/components/general/blog-tagpicker";
@@ -83,7 +76,6 @@ const Create = () => {
           control={control}
           render={({ field }) => (
             <BlogTagpicker
-              // tag={field.value ?? []}
               tag={(field.value ?? []).filter(
                 (v): v is string => typeof v === "string"
               )}

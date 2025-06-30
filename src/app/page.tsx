@@ -1,12 +1,11 @@
 import HomepageStatic from "@/components/static/static-homepage";
 import { BlogPost } from "@/types/posts.type";
 
-export const revalidate = false; // control revalidation manually
+export const revalidate = 60;
 
 async function getPosts(): Promise<BlogPost[]> {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_BACKEND_URL}/posts`, {
     headers: { "Content-Type": "application/json" },
-    next: { revalidate: 0 },
   });
 
   if (!res.ok) {

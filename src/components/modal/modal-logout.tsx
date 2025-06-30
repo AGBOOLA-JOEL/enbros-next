@@ -1,6 +1,4 @@
 import { X } from "lucide-react";
-import { useRouter } from "next/navigation";
-import useModalStore from "@/lib/store/modal-store";
 import BlogBtn from "../general/blog-btn";
 import { useAuth } from "@/hooks/useAuth";
 import { useGenselectors } from "@/lib/store/general-store";

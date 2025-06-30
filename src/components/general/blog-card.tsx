@@ -40,15 +40,6 @@ const BlogCard = ({ data }: { data: BlogPost }) => {
               </div>
             );
           })}
-
-          {/* <div className="blog__card__tag">
-            <Database size={14} />
-            Backend
-          </div>
-          <div className="blog__card__tag">
-            <Layers size={14} />
-            fullstack
-          </div> */}
         </div>
       </div>
     </div>

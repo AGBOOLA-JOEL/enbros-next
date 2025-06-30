@@ -4,7 +4,6 @@ import React from "react";
 const BlogTextarea = ({
   label,
   name,
-  // onChange,
   register,
   placeholder,
 }: BlogTextareaProp) => {
@@ -16,7 +15,6 @@ const BlogTextarea = ({
         type="text"
         {...register(name)}
         name={name}
-        // onChange={onChange}
       ></textarea>
     </div>
   );

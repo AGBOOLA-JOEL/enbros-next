@@ -4,8 +4,6 @@
 }
 
 & .homepage__stat {
-  //   min-height: 100vh;
-  //   background-color: $light;
   @include borderbox;
   overflow: hidden;
 
@@ -13,15 +11,11 @@
     max-width: 100%;
     padding-top: 100px;
     padding-bottom: 50px;
-    // margin: 0 auto;
-    // padding: 100px 40px;
     padding-left: 50px;
     padding-right: 50px;
-    // padding-top: 40px;
     @include flex(row);
     align-items: center;
     gap: 100px;
-    // min-height: 80vh;
 
     @include sm {
       @include flex(column);
@@ -31,7 +25,6 @@
   }
 
   &__left {
-    // flex: 1;
     max-width: 600px;
     margin-top: -50px;
     @include flex(column);
@@ -90,7 +83,7 @@
   &__metrics {
     @include flex(row);
     gap: 80px;
-    // padding-top: 50px;
+
     border-top: 1px solid rgba(152, 152, 154, 0.15);
     border-right: 1px solid rgba(152, 152, 154, 0.15);
     @include sm {
@@ -123,8 +116,6 @@
   &__icon {
     @include center;
     color: $primary;
-    // width: 32px;
-    // height: 32px;
 
     & span {
       color: $light;
@@ -223,7 +214,6 @@
 }
 
 & .homepage__blogs {
-  //   margin-top: 30px;
   padding: 30px;
   width: 100%;
   @include borderbox;
@@ -232,7 +222,6 @@
   grid-template-columns: repeat(2, 1fr);
   grid-row-gap: 25px;
   @include sm {
-    // width: 100%;
     gap: 12px;
     display: flex;
     flex-direction: column;

@@ -1,6 +1,5 @@
 import { X } from "lucide-react";
-import { useParams, useRouter } from "next/navigation";
-import useModalStore from "@/lib/store/modal-store";
+import { useParams } from "next/navigation";
 import BlogBtn from "../general/blog-btn";
 import { usePost } from "@/hooks/usePost";
 import BlogSpinner from "../general/blog_spinner";
@@ -13,12 +12,12 @@ const ModalDelete = ({ isOpen, onClose }: ModalProp) => {
   const params = useParams();
   const postId = params?.postId as string;
   const { deletePostMutation } = usePost();
-  const { openModal, closeModal } = useModalStore();
-  const router = useRouter();
-  if (!isOpen) return null;
+
   const handleClick = async () => {
     deletePostMutation.mutate(postId);
   };
+
+  if (!isOpen) return null;
   return (
     <div className="modal_bg">
       {deletePostMutation.isPending ? (

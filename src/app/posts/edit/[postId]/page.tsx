@@ -130,14 +130,11 @@ import BlogTagpicker from "@/components/general/blog-tagpicker";
 import { useAuth } from "@/hooks/useAuth";
 
 const Edit = () => {
-  const { openModal, closeModal } = useModalStore();
   const openToast = useGenselectors.use.openToast();
-  const router = useRouter();
   const params = useParams();
   const postId = params?.postId as string;
 
-  const { singlePost, singlePostLoading, singlePostError, editpostMutation } =
-    usePost(postId);
+  const { singlePost, singlePostLoading, editpostMutation } = usePost(postId);
 
   const { register, handleSubmit, reset, control } = useForm<EditData>({
     resolver: yupResolver(editschema) as any,

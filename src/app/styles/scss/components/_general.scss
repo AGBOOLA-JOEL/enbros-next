@@ -118,8 +118,6 @@
       @include flex(row);
       align-items: center;
 
-      // @include strip-list;
-
       & a {
         @include clear-btn;
         text-transform: uppercase;
@@ -161,7 +159,6 @@
         box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.34);
         color: $light;
         outline: none;
-        // @include clear-btn;
         @include transparent-white;
         transition: 0.3s ease-in-out;
 
@@ -403,7 +400,6 @@
     cursor: pointer;
     transition: all 0.2s ease;
     border: 1px solid #333333 !important;
-    // background-color: #ffffff;
     color: #98989a;
 
     @include sm {
@@ -431,7 +427,6 @@
   @include borderbox;
 
   &__container {
-    // max-width: 64rem;
     width: 100%;
     @include sm {
       height: auto;
@@ -626,7 +621,6 @@
 
 & .blog__textarea {
   width: 87%;
-  // @include center(column);
   @include sm {
     width: 92.5%;
   }
@@ -667,7 +661,7 @@
     border: 1px solid $light;
     width: 92.5%;
   }
-  // background-color: yellow;
+
   & .blog_tags__title {
     font-weight: 400;
     width: 100%;
@@ -784,7 +778,7 @@
     width: 100%;
 
     & .blog__skeleton {
-      min-height: 100vh; // background-color: blue;
+      min-height: 100vh;
       @include borderbox;
       padding-left: 70px;
       padding-right: 70px;
@@ -1146,4 +1140,9 @@
   font-size: 1.4rem;
   @include full-flex(center, center, row);
   font-style: italic;
+}
+
+& .blog___error__page {
+  min-height: 100vh;
+  @include center(column);
 }

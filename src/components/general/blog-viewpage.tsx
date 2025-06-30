@@ -16,6 +16,7 @@ const BlogViewpage = ({ data }: { data: BlogPost }) => {
   const blogdata = data;
   const showOption = user?.id === blogdata.authorId;
   const { posts } = usePost();
+
   const handleEdit = () => {
     router.push(`/posts/edit/${blogdata.id}`);
   };

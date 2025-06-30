@@ -11,7 +11,7 @@ import { useGenselectors } from "@/lib/store/general-store";
 
 const BlogNav = () => {
   const router = useRouter();
-  const { isAuthenticated, user } = useAuth();
+  const { isAuthenticated } = useAuth();
   const { openModal } = useModalStore();
   const toggle = useGenselectors.use.toggle();
   const toggleState = useGenselectors.use.toggleState();

@@ -1,6 +1,5 @@
 "use client";
 import { useGenselectors } from "@/lib/store/general-store";
-
 import { X } from "lucide-react";
 import { Info } from "lucide-react";
 

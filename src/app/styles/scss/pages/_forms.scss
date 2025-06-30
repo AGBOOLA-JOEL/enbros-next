@@ -52,7 +52,6 @@
       &:hover {
         transition: 0.3s ease-in-out;
         background-color: $secondary;
-        // color: $secondary;
       }
       @include sm {
         font-size: 1.8rem;
@@ -129,7 +128,6 @@
           color: $primary;
           font-size: 1.7rem;
           width: 87%;
-          // @include center(column);
           @include sm {
             width: 92.5%;
           }
@@ -144,7 +142,6 @@
           color: $primary;
           font-size: 1.7rem;
           width: 87%;
-          // @include center(column);
           @include sm {
             width: 92.5%;
           }
@@ -185,7 +182,6 @@
         &:hover {
           transition: 0.3s ease-in-out;
           background-color: $secondary;
-          // color: $secondary;
         }
         @include sm {
           font-size: 1.8rem;

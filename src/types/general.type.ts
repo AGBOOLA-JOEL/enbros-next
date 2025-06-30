@@ -8,7 +8,6 @@ export type BlogBtnProp = {
 export type BlogInputProp = {
   isPassword: boolean;
   name: string;
-  // onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   register: any;
   label: string;
 };
@@ -16,7 +15,6 @@ export type BlogInputProp = {
 export type BlogTextareaProp = {
   name: string;
   placeholder: string;
-  // onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   register: any;
   label: string;
 };
